@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Positions — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Open Positions
+            <span class="simulation-pill">Intraday (MIS) & F&O</span>
+          </h1>
+          <p class="workspace-subtitle">All active intraday positions and open derivative contracts for the current session.</p>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-sell btn-sm" id="btn-squareoff-all">
+            Square Off All Positions
+          </button>
+        </div>
+      </div>
+
+      <!-- Positions 3-Metric Summary Cards -->
+      <div class="trading-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: var(--spacing-5);">
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Realized P&L</div>
+          <div class="trading-stat-large" id="positions-realized-pnl" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Unrealized P&L</div>
+          <div class="trading-stat-large" id="positions-unrealized-pnl" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Total Net Session P&L</div>
+          <div class="trading-stat-large" id="positions-net-pnl" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+      </div>
+
+      <!-- Positions Table -->
+      <div class="table-container" id="positions-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Instrument</th>
+              <th class="text-right">Net Qty</th>
+              <th class="text-right">Avg. Price (₹)</th>
+              <th class="text-right">LTP (₹)</th>
+              <th class="text-right">P&L (₹)</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="positions-table-body">
+            <!-- Populated by positions.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="positions-empty-state" style="display:none;"></div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initPositionsPage } from "./js/pages/positions.js";
+    document.addEventListener("DOMContentLoaded", initPositionsPage);
+  </script>
+</body>
+</html>

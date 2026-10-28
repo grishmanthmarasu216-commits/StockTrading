@@ -1,0 +1,142 @@
+/* ==========================================================================
+   TradeNest Authentication Styles (Login, Sign-up, Forgot Password)
+   ========================================================================== */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.auth-header {
+  padding: var(--spacing-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+}
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-10) var(--spacing-4);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-card-header {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.auth-card-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.auth-card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.auth-demo-notice {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  font-size: var(--font-size-xs);
+  color: #166534;
+  line-height: var(--line-height-normal);
+}
+
+.auth-demo-notice code {
+  background-color: #dcfce7;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-family: var(--font-family-mono);
+  font-weight: bold;
+}
+
+.password-input-group {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  font-size: var(--font-size-xs);
+}
+
+.auth-footer-links {
+  margin-top: var(--spacing-6);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.auth-footer-links a {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.auth-bottom-disclaimer {
+  text-align: center;
+  padding: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: var(--text-light);
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+}
+
+.otp-boxes {
+  display: flex;
+  gap: var(--spacing-2);
+  justify-content: center;
+  margin: var(--spacing-4) 0;
+}
+
+.otp-input {
+  width: 44px;
+  height: 48px;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  font-family: var(--font-family-mono);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.otp-input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}

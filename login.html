@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to TradeNest — Modern Trading Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="auth-wrapper">
+
+  <!-- Auth Topbar -->
+  <header class="auth-header">
+    <a href="./index.html" class="brand-logo" aria-label="TradeNest Home">
+      <div class="brand-icon">TN</div>
+      <span>Trade<span class="brand-highlight">Nest</span></span>
+    </a>
+    <div>
+      <span style="font-size: 13px; color: var(--text-muted); margin-right: 8px;">Don't have an account?</span>
+      <a href="./signup.html" class="btn btn-outline btn-xs">Sign up</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h1 class="auth-card-title">Login to TradeNest</h1>
+        <p class="auth-card-desc">Enter your credentials to access the trading workspace</p>
+      </div>
+
+      <!-- Demo Account Notice with 1-Click Autofill -->
+      <div class="auth-demo-notice">
+        <div style="font-weight: 600; margin-bottom: 4px;">Simulation Credentials:</div>
+        <div>User ID: <code>TN1024</code> &bull; Password: <code>demo1234</code> &bull; PIN: <code>123456</code></div>
+        <div style="margin-top: 8px;">
+          <button type="button" class="btn btn-outline btn-xs" id="btn-quick-demo" style="background:#ffffff; border-color:#86efac; color:#166534; font-weight:bold;">
+            ⚡ 1-Click Autofill Demo Credentials
+          </button>
+        </div>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="client-id" class="form-label">Client ID or Email</label>
+          <input type="text" id="client-id" class="form-control" placeholder="e.g. TN1024 or alex@domain.com" required autocomplete="username">
+          <div class="invalid-feedback">Please enter your Client ID or Email</div>
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label for="password" class="form-label">Password</label>
+            <a href="./forgot-password.html" style="font-size: 12px;">Forgot password?</a>
+          </div>
+          <div class="password-input-group">
+            <input type="password" id="password" class="form-control" placeholder="Enter password" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="toggle-password" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <div class="invalid-feedback">Password is required (min 4 characters)</div>
+        </div>
+
+        <div class="form-group">
+          <label for="pin" class="form-label">Security PIN (2FA Simulation)</label>
+          <input type="password" id="pin" class="form-control mono" placeholder="6-digit PIN (e.g. 123456)" maxlength="6" pattern="[0-9]*" inputmode="numeric" required>
+          <div class="invalid-feedback">Please enter your 4-6 digit security PIN</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+          Login to Workspace &rarr;
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        <a href="./forgot-password.html">Forgot Client ID / PIN?</a>
+        <a href="./signup.html">Open a new account</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="auth-bottom-disclaimer">
+    <span class="simulation-pill" style="margin-bottom: 4px;">Simulated Authentication Mode</span>
+    <div>TradeNest is an educational frontend application. Actual server-side authentication will be connected in a later phase.</div>
+  </footer>
+
+  <script type="module">
+    import { initLoginPage } from "./js/pages/auth.js";
+    document.addEventListener("DOMContentLoaded", initLoginPage);
+  </script>
+</body>
+</html>

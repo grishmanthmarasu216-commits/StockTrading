@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Products — TradeNest</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/public.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+
+  <!-- Public Header -->
+  <header class="public-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand-logo" aria-label="TradeNest Home">
+        <div class="brand-icon">TN</div>
+        <span>Trade<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <nav class="public-nav" aria-label="Main Navigation">
+        <a href="./index.html" data-page="home">Home</a>
+        <a href="./about.html" data-page="about">About</a>
+        <a href="./technology.html" data-page="technology">Technology</a>
+        <a href="./pricing.html" data-page="pricing" class="active">Pricing & Products</a>
+        <a href="./login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="./signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+      </nav>
+
+      <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Pricing Hero -->
+    <section class="hero-section" style="padding: var(--spacing-12) 0;">
+      <div class="container hero-content">
+        <span class="section-tag">Unbeatable Pricing</span>
+        <h1 class="hero-title" style="font-size:2.75rem;">
+          Transparent, flat fees. Zero hidden commissions.
+        </h1>
+        <p class="hero-subtitle">
+          We pioneered zero brokerage on equity delivery. No complicated tier systems or surprise charges at month end.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards Grid -->
+    <section class="container" style="margin-bottom: var(--spacing-16);">
+      <div class="pricing-grid">
+        <!-- Card 1: Free Delivery -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3 style="font-size:1.25rem;">Free Equity Delivery</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">For long-term investors & wealth builders</p>
+          <div class="pricing-amount">₹0 <span>/ order</span></div>
+          <div class="pricing-features">
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero brokerage on all NSE/BSE cash delivery</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero commission on direct mutual funds</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Free account maintenance for retail demo</span>
+            </div>
+          </div>
+          <a href="./signup.html" class="btn btn-primary btn-sm" style="margin-top:auto;">Open Free Account</a>
+        </div>
+
+        <!-- Card 2: Intraday & F&O -->
+        <div class="pricing-card">
+          <h3 style="font-size:1.25rem;">Intraday & F&O</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">For active day traders & derivatives</p>
+          <div class="pricing-amount">₹20 <span>or 0.03%</span></div>
+          <div class="pricing-features">
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>₹20 or 0.03% (whichever lower) on equity intraday</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Flat ₹20 per executed order on Futures & Options</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Up to 5x intraday margin on top large-caps</span>
+            </div>
+          </div>
+          <a href="./dashboard.html" class="btn btn-outline btn-sm" style="margin-top:auto;">Explore Trading Demo</a>
+        </div>
+
+        <!-- Card 3: Direct Mutual Funds -->
+        <div class="pricing-card">
+          <h3 style="font-size:1.25rem;">Direct Mutual Funds</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">Invest in high performing AMC schemes</p>
+          <div class="pricing-amount">₹0 <span>commissions</span></div>
+          <div class="pricing-features">
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Direct plans with 0% distributor commissions</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Save up to 1.5% extra every year in expense ratios</span>
+            </div>
+            <div class="pricing-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant SIP setup and automated mandate</span>
+            </div>
+          </div>
+          <a href="./signup.html" class="btn btn-outline btn-sm" style="margin-top:auto;">Start Investing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Brokerage Calculator Section -->
+    <section class="section section-alt" id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Interactive Tool</span>
+          <h2 class="section-title">Brokerage & Charges Calculator</h2>
+          <p class="section-subtitle">Calculate exact simulated trade taxes, STT, GST, and net profit before placing any order.</p>
+        </div>
+
+        <div class="calculator-card">
+          <div class="calc-grid">
+            <!-- Inputs -->
+            <div>
+              <h4 style="margin-bottom: 20px;">Trade Parameters</h4>
+              
+              <div class="form-group">
+                <label for="calc-segment" class="form-label">Segment</label>
+                <select id="calc-segment" class="form-control">
+                  <option value="delivery">Equity Delivery (₹0 Brokerage)</option>
+                  <option value="intraday">Equity Intraday (₹20 or 0.03%)</option>
+                  <option value="futures">Equity Futures (Flat ₹20)</option>
+                  <option value="options">Equity Options (Flat ₹20 per leg)</option>
+                </select>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                <div class="form-group">
+                  <label for="calc-buy-price" class="form-label">Buy Price (₹)</label>
+                  <input type="number" id="calc-buy-price" class="form-control" value="1800.00" step="0.5">
+                </div>
+                <div class="form-group">
+                  <label for="calc-sell-price" class="form-label">Sell Price (₹)</label>
+                  <input type="number" id="calc-sell-price" class="form-control" value="1850.00" step="0.5">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="calc-qty" class="form-label">Quantity (Shares / Contracts)</label>
+                <input type="number" id="calc-qty" class="form-control" value="100" min="1">
+              </div>
+
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+                * Calculated as per standard Indian Exchange (NSE/BSE) statutory taxation rates.
+              </div>
+            </div>
+
+            <!-- Results -->
+            <div class="calc-results">
+              <h4 style="margin-bottom: 16px;">Simulated Cost Breakdown</h4>
+              <div class="calc-row">
+                <span class="text-muted">Turnover:</span>
+                <span id="res-turnover" class="mono">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">TradeNest Brokerage:</span>
+                <span id="res-brokerage" class="mono text-bold">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">Securities Transaction Tax (STT):</span>
+                <span id="res-stt" class="mono">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">Exchange Transaction Charges:</span>
+                <span id="res-exchange" class="mono">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">GST (18% on Brokerage & Txn):</span>
+                <span id="res-gst" class="mono">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">SEBI Turnover & Stamp Duty:</span>
+                <span id="res-sebi" class="mono">₹0.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="text-muted">Total Tax & Charges:</span>
+                <span id="res-total-charges" class="mono text-bold text-down">₹0.00</span>
+              </div>
+              <div class="calc-row total">
+                <span>Net Simulated P&L:</span>
+                <span id="res-net-pnl" class="mono text-up">₹0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Public Footer -->
+  <footer class="public-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="./index.html" class="brand-logo">
+            <div class="brand-icon">TN</div>
+            <span>Trade<span class="brand-highlight">Nest</span></span>
+          </a>
+          <p>The modern stock trading and intelligent portfolio platform built for transparency, low fees, and superior speed.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./technology.html">Technology</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="./dashboard.html">TradeNest Web</a></li>
+            <li><a href="./stock-details.html?symbol=INFY">Stock Details</a></li>
+            <li><a href="./orders.html">Orders</a></li>
+            <li><a href="./holdings.html">Holdings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Support</h5>
+          <ul>
+            <li><a href="./pricing.html#calculator">Brokerage Calculator</a></li>
+            <li><a href="./forgot-password.html">Forgot Password</a></li>
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="./about.html#terms">Terms of Service</a></li>
+            <li><a href="./about.html#privacy">Privacy Policy</a></li>
+            <li><a href="./about.html#disclosure">Risk Disclosures</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p><strong>Simulated Educational Trading Platform:</strong> TradeNest is a simulation and educational platform inspired by professional fintech terminals. All market quotes, index prices, trades, balances, and statements displayed within TradeNest are completely simulated and do not represent real financial transactions or execution on an actual stock exchange.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 TradeNest Technologies Inc. All rights reserved.</div>
+        <div class="simulation-pill">Simulated Environment &bull; For Educational & Demonstration Use</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initPricingPage } from "./js/pages/public.js";
+    document.addEventListener("DOMContentLoaded", initPricingPage);
+  </script>
+</body>
+</html>

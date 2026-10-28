@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — TradeNest</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="auth-wrapper">
+
+  <!-- Auth Topbar -->
+  <header class="auth-header">
+    <a href="./index.html" class="brand-logo" aria-label="TradeNest Home">
+      <div class="brand-icon">TN</div>
+      <span>Trade<span class="brand-highlight">Nest</span></span>
+    </a>
+    <div>
+      <span style="font-size: 13px; color: var(--text-muted); margin-right: 8px;">Already registered?</span>
+      <a href="./login.html" class="btn btn-outline btn-xs">Login</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <div class="auth-card" style="max-width: 480px;">
+      <div class="auth-card-header">
+        <h1 class="auth-card-title">Open a TradeNest Account</h1>
+        <p class="auth-card-desc">Zero brokerage delivery trading & investing platform</p>
+      </div>
+
+      <div class="auth-demo-notice">
+        <strong>Demo Registration:</strong> Enter simulated details below to test the client onboarding flow. No actual identity verification is performed in Phase 1.
+      </div>
+
+      <form id="signup-form" novalidate>
+        <div class="form-group">
+          <label for="mobile" class="form-label">10-Digit Mobile Number</label>
+          <div style="display:flex; gap: 8px;">
+            <span style="display:flex; align-items:center; padding: 0 10px; background:#f1f5f9; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:13px; color:var(--text-muted);">+91</span>
+            <input type="tel" id="mobile" class="form-control" placeholder="98765 43210" maxlength="10" required>
+          </div>
+          <div class="invalid-feedback">Enter a valid 10-digit mobile number</div>
+        </div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Full Name (as per PAN)</label>
+          <input type="text" id="fullname" class="form-control" placeholder="e.g. Alex Morgan" required>
+          <div class="invalid-feedback">Please enter your full legal name</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="alex@domain.com" required>
+          <div class="invalid-feedback">Please enter a valid email address</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Choose Account Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Minimum 6 characters" minlength="6" required>
+          <div class="invalid-feedback">Password must be at least 6 characters</div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--text-muted); cursor: pointer;">
+            <input type="checkbox" required checked style="margin-top: 2px;">
+            <span>I agree to the <a href="./about.html#terms">Terms of Service</a>, Risk Disclosures, and understand this is an educational simulation.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Create Free Account &rarr;
+        </button>
+      </form>
+
+      <div class="auth-footer-links" style="justify-content: center;">
+        <span>Already have a TradeNest ID? <a href="./login.html">Login here</a></span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="auth-bottom-disclaimer">
+    <span class="simulation-pill" style="margin-bottom: 4px;">Simulated Registration Mode</span>
+    <div>TradeNest is an educational frontend application. Actual server-side onboarding will be implemented in Phase 2.</div>
+  </footer>
+
+  <script type="module">
+    import { initSignupPage } from "./js/pages/auth.js";
+    document.addEventListener("DOMContentLoaded", initSignupPage);
+  </script>
+</body>
+</html>

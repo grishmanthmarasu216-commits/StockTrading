@@ -1,0 +1,120 @@
+/* ==========================================================================
+   TradeNest Design System - CSS Variables & Tokens
+   Inspired by clean modern fintech & Zerodha Kite light workspace
+   ========================================================================== */
+
+:root {
+  /* Brand Colors - Restrained Navy & Teal */
+  --color-primary: #0f2b48;          /* Deep classic Navy */
+  --color-primary-light: #1a426e;
+  --color-primary-dark: #091b30;
+  --color-accent: #0284c7;           /* Sky / Cerulean Blue */
+  --color-accent-hover: #0369a1;
+  --color-teal: #0d9488;             /* TradeNest Teal */
+  --color-teal-light: #f0fdfa;
+
+  /* Trading Action Colors (Buy / Sell / Profit / Loss) */
+  --color-buy: #2563eb;              /* Kite Buy Blue */
+  --color-buy-hover: #1d4ed8;
+  --color-buy-bg: #eff6ff;
+  --color-sell: #e11d48;             /* Kite Sell Red/Orange */
+  --color-sell-hover: #be123c;
+  --color-sell-bg: #fff1f2;
+
+  --color-up: #16a34a;               /* Bullish Green */
+  --color-up-bg: #f0fdf4;
+  --color-up-subtle: #dcfce7;
+  --color-down: #dc2626;             /* Bearish Red */
+  --color-down-bg: #fef2f2;
+  --color-down-subtle: #fee2e2;
+
+  /* Neutral Surface & Background Colors */
+  --bg-body: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-app: #f8fafc;
+  --bg-subtle: #f1f5f9;
+  --bg-hover: #f8fafc;
+  --bg-active: #e2e8f0;
+  --bg-alt: #f8fafc;
+
+  /* Text & Content Colors */
+  --text-main: #1e293b;              /* High contrast charcoal */
+  --text-muted: #64748b;             /* Secondary text */
+  --text-light: #94a3b8;             /* Tertiary / placeholder */
+  --text-inverse: #ffffff;
+
+  /* Border & Separator Colors */
+  --border-light: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-dark: #cbd5e1;
+  --border-focus: #0284c7;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.8125rem;   /* 13px - Kite standard table text */
+  --font-size-base: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;        /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Spacing Scale */
+  --spacing-1: 0.25rem;  /* 4px */
+  --spacing-2: 0.5rem;   /* 8px */
+  --spacing-3: 0.75rem;  /* 12px */
+  --spacing-4: 1rem;     /* 16px */
+  --spacing-5: 1.25rem;  /* 20px */
+  --spacing-6: 1.5rem;   /* 24px */
+  --spacing-8: 2rem;     /* 32px */
+  --spacing-10: 2.5rem;  /* 40px */
+  --spacing-12: 3rem;    /* 48px */
+  --spacing-16: 4rem;    /* 64px */
+
+  /* Layout Dimensions */
+  --topbar-height: 58px;
+  --watchlist-width: 380px;
+  --max-content-width: 1200px;
+  --sidebar-collapsed-width: 0px;
+
+  /* Elevation & Shadows (subtle, restrained) */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* Z-indices */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-header: 500;
+  --z-modal-backdrop: 1000;
+  --z-modal: 1050;
+  --z-toast: 2000;
+}

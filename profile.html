@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Settings — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Profile & Settings
+            <span class="simulation-pill">Account TN1024</span>
+          </h1>
+          <p class="workspace-subtitle">Manage your personal details, linked bank accounts, and trading workspace preferences.</p>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-reset-demo-all" style="color:#d97706; border-color:#fcd34d;">
+            Reset Demo Data to Initial State
+          </button>
+        </div>
+      </div>
+
+      <!-- 2-Column Profile Grid -->
+      <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:var(--spacing-6);">
+        <!-- Column 1: Account Information & Bank Details -->
+        <div>
+          <!-- Personal Info Card -->
+          <div class="trading-card" style="margin-bottom: var(--spacing-5);">
+            <div class="trading-card-header">
+              <span class="trading-card-title">Personal & Demat Details</span>
+              <span class="badge badge-success">KYC Verified</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Account Holder:</span>
+              <span id="profile-name" class="text-bold">Alex Morgan</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Client ID:</span>
+              <span id="profile-client-id" class="mono text-bold">TN1024</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Registered Email:</span>
+              <span id="profile-email">alex.morgan@tradenest.demo</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Phone Number:</span>
+              <span id="profile-phone">+91 98765 43210</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Permanent Account Number (PAN):</span>
+              <span id="profile-pan" class="mono">ABCDE1234F</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Demat BO ID:</span>
+              <span id="profile-boid" class="mono">1208160001234567</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Depository Participant (DP ID):</span>
+              <span id="profile-dpid" class="mono">IN300124</span>
+            </div>
+          </div>
+
+          <!-- Linked Bank Details -->
+          <div class="trading-card">
+            <div class="trading-card-header">
+              <span class="trading-card-title">Linked Bank Account</span>
+              <span class="badge badge-info">Primary Payout</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Bank Name:</span>
+              <span id="profile-bank-name" class="text-bold">HDFC Bank Ltd</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Account Number:</span>
+              <span id="profile-bank-acc" class="mono">•••• •••• 4920</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">IFSC Code:</span>
+              <span id="profile-ifsc" class="mono">HDFC0001234</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Penny Drop Verification:</span>
+              <span class="text-up text-bold">✓ Confirmed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Workspace Preferences & Security -->
+        <div>
+          <!-- Workspace Preferences -->
+          <div class="trading-card" style="margin-bottom: var(--spacing-5);">
+            <div class="trading-card-header">
+              <span class="trading-card-title">Trading Preferences</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pref-theme" class="form-label">Interface Theme</label>
+              <select id="pref-theme" class="form-control">
+                <option value="light">Classic Light Workspace (Default)</option>
+                <option value="dark">Pro High-Contrast (Preview)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pref-chart" class="form-label">Default Chart Style</label>
+              <select id="pref-chart" class="form-control">
+                <option value="candlestick">Candlestick (Recommended)</option>
+                <option value="line">Line Area</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pref-order" class="form-label">Default Order Product</label>
+              <select id="pref-order" class="form-control">
+                <option value="CNC">Longterm Delivery (CNC)</option>
+                <option value="MIS">Intraday Margin (MIS)</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-sm" id="btn-save-prefs" style="width: 100%;">
+              Save Preferences
+            </button>
+          </div>
+
+          <!-- Security & 2FA -->
+          <div class="trading-card">
+            <div class="trading-card-header">
+              <span class="trading-card-title">Security & Credentials</span>
+            </div>
+
+            <div class="trading-card-row">
+              <span class="text-muted">Two-Factor Auth (2FA):</span>
+              <span class="badge badge-success">Enabled (Simulated PIN)</span>
+            </div>
+
+            <form id="form-change-password" style="margin-top: 16px;">
+              <div class="form-group">
+                <label for="new-pass" class="form-label">Update Demo Password</label>
+                <input type="password" id="new-pass" class="form-control" placeholder="New password" required>
+              </div>
+              <button type="submit" class="btn btn-outline btn-sm" style="width: 100%;">
+                Update Password
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initProfilePage } from "./js/pages/profile.js";
+    document.addEventListener("DOMContentLoaded", initProfilePage);
+  </script>
+</body>
+</html>

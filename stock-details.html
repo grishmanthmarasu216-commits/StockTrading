@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Details — TradeNest</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Stock Header & Switcher -->
+      <div class="workspace-header">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <h1 class="workspace-title" id="stock-symbol-title">INFY</h1>
+            <span class="badge badge-neutral" id="stock-exchange-tag">NSE</span>
+            <span class="badge badge-info" id="stock-sector-tag">Technology</span>
+            <span class="simulation-pill">Simulated Stock</span>
+          </div>
+          <p class="workspace-subtitle" id="stock-company-name">Infosys Limited</p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+          <!-- Stock Switcher -->
+          <select id="stock-select-dropdown" class="form-control" style="width: 240px; font-size:12px; padding:4px 8px;">
+            <!-- Populated by JS -->
+          </select>
+
+          <!-- Buy / Sell Action Buttons -->
+          <button type="button" class="btn btn-buy btn-sm" id="stock-btn-buy">Buy (B)</button>
+          <button type="button" class="btn btn-sell btn-sm" id="stock-btn-sell">Sell (S)</button>
+        </div>
+      </div>
+
+      <!-- Current Price & Change Banner -->
+      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:var(--spacing-6);">
+        <span class="trading-stat-large" id="stock-ltp">₹0.00</span>
+        <span class="trading-stat-label" id="stock-change">+0.00 (0.00%)</span>
+      </div>
+
+      <!-- Interactive Chart Box -->
+      <div class="chart-container-box">
+        <div class="chart-header">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-weight:600; font-size:13px;">Price Chart</span>
+            <div style="display:flex; gap:4px;">
+              <button type="button" class="btn btn-outline btn-xs active" id="toggle-candle-chart">Candlestick</button>
+              <button type="button" class="btn btn-outline btn-xs" id="toggle-line-chart">Line</button>
+            </div>
+          </div>
+
+          <div class="chart-timeframe-selector">
+            <button class="timeframe-btn active">1D</button>
+            <button class="timeframe-btn">1W</button>
+            <button class="timeframe-btn">1M</button>
+            <button class="timeframe-btn">1Y</button>
+          </div>
+        </div>
+
+        <div class="chart-svg-wrapper" id="stock-chart-svg-container">
+          <!-- Rendered by stockDetails.js -->
+        </div>
+      </div>
+
+      <!-- 2-Column Section: Key Statistics & 5-Level Market Depth -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:var(--spacing-5);">
+        <!-- Market Depth (Kite 5-Level Depth) -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Market Depth (Level 2)</span>
+            <span class="simulation-pill" style="font-size:10px;">Simulated Book</span>
+          </div>
+
+          <div class="market-depth-grid">
+            <!-- Bid Column -->
+            <div>
+              <div class="market-depth-col-title text-up" style="display:grid; grid-template-columns:1fr 1fr 1fr;">
+                <span>Orders</span>
+                <span>Qty</span>
+                <span>Bid Price</span>
+              </div>
+              <div id="depth-bids-body">
+                <!-- Populated by JS -->
+              </div>
+              <div class="market-depth-total" style="display:flex; justify-content:space-between;">
+                <span>Total Bids:</span>
+                <span id="depth-bids-total" class="mono text-up">0</span>
+              </div>
+            </div>
+
+            <!-- Offer Column -->
+            <div>
+              <div class="market-depth-col-title text-down" style="display:grid; grid-template-columns:1fr 1fr 1fr;">
+                <span>Offer Price</span>
+                <span>Qty</span>
+                <span style="text-align:right;">Orders</span>
+              </div>
+              <div id="depth-offers-body">
+                <!-- Populated by JS -->
+              </div>
+              <div class="market-depth-total" style="display:flex; justify-content:space-between;">
+                <span>Total Offers:</span>
+                <span id="depth-offers-total" class="mono text-down">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Market Statistics -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Key Statistics & Fundamentals</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-3);">
+            <div class="trading-card-row">
+              <span class="text-muted">Open:</span>
+              <span id="stat-open" class="mono">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">High:</span>
+              <span id="stat-high" class="mono">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Low:</span>
+              <span id="stat-low" class="mono">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Prev. Close:</span>
+              <span id="stat-close" class="mono">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Volume:</span>
+              <span id="stat-volume" class="mono">0</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">P/E Ratio:</span>
+              <span id="stat-pe" class="mono">0.0</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">52W High:</span>
+              <span id="stat-52high" class="mono text-up">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">52W Low:</span>
+              <span id="stat-52low" class="mono text-down">₹0.00</span>
+            </div>
+            <div class="trading-card-row" style="grid-column: span 2;">
+              <span class="text-muted">Market Capitalization:</span>
+              <span id="stat-marketcap" class="mono text-bold">₹0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initStockDetailsPage } from "./js/pages/stockDetails.js";
+    document.addEventListener("DOMContentLoaded", initStockDetailsPage);
+  </script>
+</body>
+</html>

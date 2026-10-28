@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holdings — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Holdings Portfolio
+            <span class="simulation-pill">Cash Delivery (CNC)</span>
+          </h1>
+          <p class="workspace-subtitle">Your long-term equity delivery investments and unrealized returns.</p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button type="button" class="btn btn-outline btn-sm" id="btn-export-holdings">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Holdings 4-Metric Summary Bar -->
+      <div class="trading-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: var(--spacing-5);">
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Total Investment</div>
+          <div class="trading-stat-large" id="holdings-total-investment" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Current Value</div>
+          <div class="trading-stat-large" id="holdings-current-value" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Day's P&L</div>
+          <div class="trading-stat-large text-up" id="holdings-day-pnl" style="font-size:1.4rem;">+₹0.00</div>
+        </div>
+        <div class="trading-card" style="padding:14px;">
+          <div class="trading-stat-label">Overall Profit / Loss</div>
+          <div class="trading-stat-large" id="holdings-total-pnl" style="font-size:1.4rem;">₹0.00</div>
+        </div>
+      </div>
+
+      <!-- Filter & Search Controls -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--spacing-4); flex-wrap:wrap; gap:8px;">
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="text" id="holdings-search-input" class="form-control" placeholder="Search holdings..." style="width:200px; font-size:12px; padding:5px 10px;">
+          <select id="holdings-sector-filter" class="form-control" style="width:160px; font-size:12px; padding:5px 10px;">
+            <option value="ALL">All Sectors</option>
+            <option value="Technology">Technology</option>
+            <option value="Banking">Banking</option>
+            <option value="Automobile">Automobile</option>
+            <option value="Energy / Telecom">Energy / Telecom</option>
+            <option value="FMCG">FMCG</option>
+          </select>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted);">
+          <span>Brokerage on Delivery: <strong>₹0.00 (Zero)</strong></span>
+        </div>
+      </div>
+
+      <!-- Holdings Data Table -->
+      <div class="table-container" id="holdings-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th class="text-right">Qty</th>
+              <th class="text-right">Avg. Cost (₹)</th>
+              <th class="text-right">LTP (₹)</th>
+              <th class="text-right">Cur. Val (₹)</th>
+              <th class="text-right">P&L (₹)</th>
+              <th class="text-right">Net Chg.</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="holdings-table-body">
+            <!-- Populated by holdings.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="holdings-empty-state" style="display:none;"></div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initHoldingsPage } from "./js/pages/holdings.js";
+    document.addEventListener("DOMContentLoaded", initHoldingsPage);
+  </script>
+</body>
+</html>

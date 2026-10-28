@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps & Tools — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Apps & Ecosystem Tools
+            <span class="simulation-pill">Tools Suite</span>
+          </h1>
+          <p class="workspace-subtitle">Developer APIs, advanced order planners, and portfolio utilities.</p>
+        </div>
+      </div>
+
+      <!-- Developer API Console Card -->
+      <div class="trading-card" style="margin-bottom: var(--spacing-6);">
+        <div class="trading-card-header">
+          <div>
+            <span class="trading-card-title">NestAPI Developer Console</span>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:2px;">Algorithmic trading & programmatic execution keys</div>
+          </div>
+          <span class="badge badge-info">v2.4 Live Spec</span>
+        </div>
+
+        <div style="background:#0f172a; color:#38bdf8; padding:16px; border-radius:6px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <span style="font-size:11px; color:#94a3b8; text-transform:uppercase;">Active API Key:</span>
+            <div id="api-key-display" class="mono" style="font-size:14px; color:#f8fafc; font-weight:bold; margin-top:2px;">
+              tn_live_9f81a7b204c3e851d994e6b12a0487cd
+            </div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button type="button" class="btn btn-outline btn-xs" id="btn-copy-api-key" style="background:#1e293b; color:#38bdf8; border-color:#334155;">
+              Copy Key
+            </button>
+            <button type="button" class="btn btn-primary btn-xs" id="btn-generate-api-key">
+              Regenerate Key
+            </button>
+          </div>
+        </div>
+
+        <div style="font-size:12px; color:var(--text-muted);">
+          Endpoint: <code class="mono" style="color:var(--color-primary); background:#f1f5f9; padding:2px 6px; border-radius:3px;">https://api.tradenest.demo/v2/orders/market</code> &bull; Rate Limit: 10 req/sec
+        </div>
+      </div>
+
+      <!-- Tools Grid -->
+      <div class="trading-cards-grid">
+        <!-- Basket Orders -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Basket Orders</span>
+            <span class="badge badge-outline">Ready</span>
+          </div>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+            Group multiple orders into a single execution basket to deploy multi-leg option strategies or thematic portfolios with 1 click.
+          </p>
+          <button type="button" class="btn btn-outline btn-sm" data-app-action="Basket Orders">
+            Create Basket &rarr;
+          </button>
+        </div>
+
+        <!-- GTT (Good-Till-Triggered) -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">GTT Orders</span>
+            <span class="badge badge-outline">Ready</span>
+          </div>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+            Place conditional stop-loss and target triggers valid up to 1 year. Orders are routed only when your target price fires.
+          </p>
+          <button type="button" class="btn btn-outline btn-sm" data-app-action="GTT Orders">
+            Configure GTT &rarr;
+          </button>
+        </div>
+
+        <!-- Stock Screener -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Technical Screener</span>
+            <span class="badge badge-outline">Ready</span>
+          </div>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+            Filter 500+ NSE/BSE stocks by technical breakouts, 52-week highs, volume shocks, and RSI levels in real time.
+          </p>
+          <button type="button" class="btn btn-outline btn-sm" data-app-action="Stock Screener">
+            Open Screener &rarr;
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initAppsPage } from "./js/pages/apps.js";
+    document.addEventListener("DOMContentLoaded", initAppsPage);
+  </script>
+</body>
+</html>

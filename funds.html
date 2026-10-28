@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funds & Margins — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Funds & Margins
+            <span class="simulation-pill">Simulated Capital</span>
+          </h1>
+          <p class="workspace-subtitle">Monitor available cash margin, exposure buffers, and fund deposits.</p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button type="button" class="btn btn-primary btn-sm" id="btn-open-deposit-modal">
+            + Deposit Funds
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-open-withdraw-modal">
+            Withdraw Funds
+          </button>
+        </div>
+      </div>
+
+      <!-- Margin Cards Grid -->
+      <div class="trading-cards-grid">
+        <!-- Available Margin Card -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Available Cash Margin</span>
+            <span class="badge badge-success">Ready for Trading</span>
+          </div>
+          <div class="trading-stat-large text-up" id="funds-available-margin" style="font-size:2.2rem;">₹0.00</div>
+          <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">
+            Usable for placing Delivery (CNC) or Intraday (MIS) orders.
+          </div>
+        </div>
+
+        <!-- Margin Utilization Breakdown -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Margin Ledger</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Opening Balance:</span>
+            <span id="funds-opening-balance" class="mono text-bold">₹0.00</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Used Margin:</span>
+            <span id="funds-used-margin" class="mono text-bold text-down">₹0.00</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Today's Payin:</span>
+            <span id="funds-payin" class="mono">₹0.00</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Span Margin:</span>
+            <span id="funds-span-margin" class="mono">₹0.00</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Exposure Margin:</span>
+            <span id="funds-exposure-margin" class="mono">₹0.00</span>
+          </div>
+          <div class="trading-card-row">
+            <span class="text-muted">Collateral (Liquid):</span>
+            <span id="funds-collateral" class="mono">₹0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Fund Transactions Ledger -->
+      <div class="trading-card" style="margin-top:var(--spacing-6);">
+        <div class="trading-card-header">
+          <span class="trading-card-title">Recent Fund Transactions (Simulated)</span>
+          <span style="font-size:11px;color:var(--text-muted);">Instant simulated bank transfer</span>
+        </div>
+
+        <div class="table-container" style="border:none;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Txn ID</th>
+                <th>Date & Time</th>
+                <th>Type</th>
+                <th class="text-right">Amount (₹)</th>
+                <th>Instrument / Mode</th>
+                <th class="text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody id="funds-transactions-body">
+              <!-- Populated by funds.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initFundsPage } from "./js/pages/funds.js";
+    document.addEventListener("DOMContentLoaded", initFundsPage);
+  </script>
+</body>
+</html>

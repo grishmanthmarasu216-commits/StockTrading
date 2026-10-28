@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <!-- Chart.js Library -->
+  <script src="./js/lib/chart.umd.min.js"></script>
+  <script>
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"><\/script>');
+    }
+  </script>
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Greeting Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Hi, Alex Morgan
+            <span class="simulation-pill">Simulated Account</span>
+          </h1>
+          <p class="workspace-subtitle">Welcome to your TradeNest trading terminal. Markets are open (09:15 - 15:30 IST).</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="./funds.html" class="btn btn-outline btn-sm">Manage Funds</a>
+          <a href="./stock-details.html?symbol=INFY" class="btn btn-primary btn-sm">Stock Terminal</a>
+        </div>
+      </div>
+
+      <!-- Top Financial Summary Cards -->
+      <div class="trading-cards-grid">
+        <!-- Equity Summary Card -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Equity Margin</span>
+            <a href="./funds.html" style="font-size:12px;">View Funds &rarr;</a>
+          </div>
+          <div>
+            <div class="trading-stat-label">Available Cash Margin</div>
+            <div class="trading-stat-large" id="dash-available-margin">₹0.00</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div class="trading-card-row">
+              <span class="text-muted">Used Margin:</span>
+              <span id="dash-used-margin" class="mono text-bold">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Opening Balance:</span>
+              <span id="dash-opening-balance" class="mono">₹0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Holdings Summary Card -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Holdings Summary</span>
+            <a href="./holdings.html" style="font-size:12px;">View Holdings &rarr;</a>
+          </div>
+          <div>
+            <div class="trading-stat-label">Current Portfolio Value</div>
+            <div class="trading-stat-large" id="dash-current-value">₹0.00</div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div class="trading-card-row">
+              <span class="text-muted">Total Investment:</span>
+              <span id="dash-total-investment" class="mono">₹0.00</span>
+            </div>
+            <div class="trading-card-row">
+              <span class="text-muted">Total P&L:</span>
+              <span>
+                <strong id="dash-total-pnl" class="mono">₹0.00</strong>
+                <span id="dash-pnl-percent" class="mono" style="font-size:12px;">(0.00%)</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Analytics Grid (Donut Breakdown & Performance Curve) -->
+      <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:var(--spacing-5); margin-bottom:var(--spacing-6);">
+        <!-- Portfolio Allocation Donut -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <span class="trading-card-title">Portfolio Allocation</span>
+            <span style="font-size:11px;color:var(--text-muted);">By Holding</span>
+          </div>
+          <div id="dash-allocation-chart" style="position: relative; height: 220px; width: 100%; display:flex; align-items:center; justify-content:center;">
+            <canvas id="allocationChartCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Performance Chart Container -->
+        <div class="trading-card">
+          <div class="trading-card-header">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span class="trading-card-title">Portfolio Performance</span>
+              <span class="simulation-pill" style="font-size:10px;">Simulated History</span>
+            </div>
+            <div class="chart-timeframe-selector">
+              <button class="timeframe-btn" data-timeframe="1W">1W</button>
+              <button class="timeframe-btn active" data-timeframe="1M">1M</button>
+              <button class="timeframe-btn" data-timeframe="3M">3M</button>
+              <button class="timeframe-btn" data-timeframe="1Y">1Y</button>
+            </div>
+          </div>
+          <div id="dash-performance-chart" style="position: relative; height: 220px; width: 100%;">
+            <canvas id="performanceChartCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Holdings Quick Table Section -->
+      <div class="trading-card">
+        <div class="trading-card-header">
+          <span class="trading-card-title">Top Portfolio Holdings</span>
+          <a href="./holdings.html" style="font-size:12px;">Full Portfolio &rarr;</a>
+        </div>
+        <div class="table-container" style="border:none;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Instrument</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Avg. Price (₹)</th>
+                <th class="text-right">Current Price (₹)</th>
+                <th class="text-right">Inv. Value (₹)</th>
+                <th class="text-right">Cur. Value (₹)</th>
+                <th class="text-right">P&L (₹)</th>
+                <th class="text-right">Return %</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="dash-holdings-summary-body">
+              <!-- Rendered by dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Simulated Notice Box -->
+      <div style="margin-top:var(--spacing-6); padding:14px; background-color:#f8fafc; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:12px; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <strong>TradeNest Simulation Environment:</strong> You are trading in demo mode with ₹1,75,000.00 mock capital. Use the persistent watchlist on the left to buy and sell stocks in real-time.
+        </div>
+        <a href="./profile.html" style="color:var(--color-accent); font-weight:500; white-space:nowrap; margin-left:12px;">Settings &rarr;</a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initDashboardPage } from "./js/pages/dashboard.js";
+    document.addEventListener("DOMContentLoaded", initDashboardPage);
+  </script>
+</body>
+</html>

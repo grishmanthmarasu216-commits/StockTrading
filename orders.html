@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders — TradeNest Workspace</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/trading.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body class="trading-body">
+
+  <!-- Trading Top Navigation Bar -->
+  <header class="trading-topbar" id="trading-topbar"></header>
+
+  <!-- 2-Column Split Workspace Layout -->
+  <div class="trading-layout">
+    <!-- Persistent Left Watchlist Sidebar -->
+    <aside class="trading-watchlist-sidebar" id="watchlist-sidebar"></aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="trading-main-content">
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div>
+          <h1 class="workspace-title">
+            Orders Book
+            <span class="simulation-pill">Simulated Log</span>
+          </h1>
+          <p class="workspace-subtitle">All simulated trades, pending limit orders, and execution confirmations.</p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <input type="text" id="orders-search-input" class="form-control" placeholder="Search orders (e.g. INFY, ORD-98)..." style="width: 250px; font-size:12px; padding:5px 10px;">
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="nav-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="ALL" role="tab" aria-selected="true">All Orders</button>
+        <button class="tab-btn" data-tab="OPEN" role="tab" aria-selected="false">Open</button>
+        <button class="tab-btn" data-tab="EXECUTED" role="tab" aria-selected="false">Executed</button>
+        <button class="tab-btn" data-tab="CANCELLED" role="tab" aria-selected="false">Cancelled</button>
+      </div>
+
+      <!-- Orders Data Table Container -->
+      <div class="table-container" id="orders-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Time</th>
+              <th>Type</th>
+              <th>Instrument</th>
+              <th>Product</th>
+              <th class="text-right">Qty</th>
+              <th class="text-right">Price (₹)</th>
+              <th class="text-center">Status</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body">
+            <!-- Populated by orders.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="orders-empty-state" style="display: none;"></div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initOrdersPage } from "./js/pages/orders.js";
+    document.addEventListener("DOMContentLoaded", initOrdersPage);
+  </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology & Infrastructure — TradeNest</title>
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/public.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+
+  <!-- Public Header -->
+  <header class="public-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="brand-logo" aria-label="TradeNest Home">
+        <div class="brand-icon">TN</div>
+        <span>Trade<span class="brand-highlight">Nest</span></span>
+      </a>
+
+      <nav class="public-nav" aria-label="Main Navigation">
+        <a href="./index.html" data-page="home">Home</a>
+        <a href="./about.html" data-page="about">About</a>
+        <a href="./technology.html" data-page="technology" class="active">Technology</a>
+        <a href="./pricing.html" data-page="pricing">Pricing & Products</a>
+        <a href="./login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="./signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+      </nav>
+
+      <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Technology Hero -->
+    <section class="hero-section" style="padding: var(--spacing-12) 0;">
+      <div class="container hero-content">
+        <span class="section-tag">Engineering & Scale</span>
+        <h1 class="hero-title" style="font-size:2.75rem;">
+          Built for microsecond precision and absolute uptime
+        </h1>
+        <p class="hero-subtitle">
+          From binary order-routing protocols to streaming binary market data websockets, explore the technology foundation powering the TradeNest trading workspace.
+        </p>
+      </div>
+    </section>
+
+    <!-- Architecture Breakdown -->
+    <section class="section">
+      <div class="container">
+        <div class="tech-architecture">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px;">
+            <div>
+              <span style="font-size:12px; color:#38bdf8; text-transform:uppercase; font-weight:bold; letter-spacing:0.05em;">Core Trading Pipeline</span>
+              <h3 style="color:white; font-size:1.75rem; margin-top:4px;">Distributed OMS & RMS Engine</h3>
+            </div>
+            <span class="simulation-pill" style="background:#1e293b; border-color:#334155; color:#38bdf8;">Simulated Exchange Gateway</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:32px;">
+            <div style="background:#1e293b; padding:16px; border-radius:6px; border:1px solid #334155;">
+              <div style="font-size:12px; color:#94a3b8;">Avg Route Latency</div>
+              <div style="font-size:1.75rem; font-weight:bold; color:#38bdf8; font-family:var(--font-family-mono);">&lt; 1.2 ms</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Client request to exchange ack</div>
+            </div>
+            <div style="background:#1e293b; padding:16px; border-radius:6px; border:1px solid #334155;">
+              <div style="font-size:12px; color:#94a3b8;">Tick Broadcast Throughput</div>
+              <div style="font-size:1.75rem; font-weight:bold; color:#38bdf8; font-family:var(--font-family-mono);">1.8M/sec</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Compressed binary market ticks</div>
+            </div>
+            <div style="background:#1e293b; padding:16px; border-radius:6px; border:1px solid #334155;">
+              <div style="font-size:12px; color:#94a3b8;">Risk Rule Checks</div>
+              <div style="font-size:1.75rem; font-weight:bold; color:#38bdf8; font-family:var(--font-family-mono);">&lt; 80 µs</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">In-memory pre-trade validations</div>
+            </div>
+            <div style="background:#1e293b; padding:16px; border-radius:6px; border:1px solid #334155;">
+              <div style="font-size:12px; color:#94a3b8;">High Availability</div>
+              <div style="font-size:1.75rem; font-weight:bold; color:#38bdf8; font-family:var(--font-family-mono);">99.99%</div>
+              <div style="font-size:11px; color:#cbd5e1; margin-top:4px;">Multi-datacenter active clustering</div>
+            </div>
+          </div>
+
+          <div class="tech-code-block">
+            <span style="color:#64748b;">// TradeNest Distributed Order Management System (OMS) Telemetry</span><br>
+            [10:14:22.104] <span style="color:#4ade80;">INFO</span>  oms.gateway: Received Limit Buy Order #ORD-98214 from User TN1024 (INFY @ 1876.40, Qty: 50)<br>
+            [10:14:22.105] <span style="color:#4ade80;">INFO</span>  rms.validator: Pre-trade margin verified in 42µs. Required: ₹18,764.00, Available: ₹1,42,850.00<br>
+            [10:14:22.106] <span style="color:#38bdf8;">DISP</span>  exchange.router: Dispatched binary FIX payload to NSE Co-location Gateway<br>
+            [10:14:22.108] <span style="color:#4ade80;">INFO</span>  oms.engine: Execution acknowledged: FILL 50 shares @ ₹1876.40. State updated in 1.1ms.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Pillar Grid -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Key Pillars</span>
+          <h2 class="section-title">Built with architectural discipline</h2>
+          <p class="section-subtitle">A look under the hood at the four foundational engineering principles of TradeNest.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Real-Time WebSockets</h3>
+            <p class="feature-desc">Sub-second quote streaming delivers real-time updates for top indices and watchlists with ultra-compact binary packing.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Microservices Architecture</h3>
+            <p class="feature-desc">Fully decoupled subsystems for user management, market feeds, ledger auditing, and risk management ensure fault isolation.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Hardware Security Modules</h3>
+            <p class="feature-desc">All user credentials, authentication tokens, and API secrets are protected inside HSMs and strict zero-knowledge protocols.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Regulatory Audit Trail</h3>
+            <p class="feature-desc">Every order, amendment, cancellation, and trade has an immutable timestamped log matching rigorous compliance standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Developer API CTA -->
+    <section class="section" style="text-align:center;">
+      <div class="container" style="max-width:700px;">
+        <h2 style="font-size:2.25rem; margin-bottom:16px;">Build on the NestAPI</h2>
+        <p style="margin-bottom:28px;">Connect custom trading robots, backtesting frameworks, and algorithmic strategies with ease.</p>
+        <div style="display:flex; justify-content:center; gap:16px;">
+          <a href="./apps.html" class="btn btn-navy btn-md">Explore API Console</a>
+          <a href="./dashboard.html" class="btn btn-outline btn-md">Open Trading Workspace</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Public Footer -->
+  <footer class="public-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="./index.html" class="brand-logo">
+            <div class="brand-icon">TN</div>
+            <span>Trade<span class="brand-highlight">Nest</span></span>
+          </a>
+          <p>The modern stock trading and intelligent portfolio platform built for transparency, low fees, and superior speed.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./technology.html">Technology</a></li>
+            <li><a href="./pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="./dashboard.html">TradeNest Web</a></li>
+            <li><a href="./stock-details.html?symbol=INFY">Stock Details</a></li>
+            <li><a href="./orders.html">Orders</a></li>
+            <li><a href="./holdings.html">Holdings</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Support</h5>
+          <ul>
+            <li><a href="./pricing.html#calculator">Brokerage Calculator</a></li>
+            <li><a href="./forgot-password.html">Forgot Password</a></li>
+            <li><a href="./login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="./about.html#terms">Terms of Service</a></li>
+            <li><a href="./about.html#privacy">Privacy Policy</a></li>
+            <li><a href="./about.html#disclosure">Risk Disclosures</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p><strong>Simulated Educational Trading Platform:</strong> TradeNest is a simulation and educational platform inspired by professional fintech terminals. All market quotes, index prices, trades, balances, and statements displayed within TradeNest are completely simulated and do not represent real financial transactions or execution on an actual stock exchange.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 TradeNest Technologies Inc. All rights reserved.</div>
+        <div class="simulation-pill">Simulated Environment &bull; For Educational & Demonstration Use</div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initTechnologyPage } from "./js/pages/public.js";
+    document.addEventListener("DOMContentLoaded", initTechnologyPage);
+  </script>
+</body>
+</html>
